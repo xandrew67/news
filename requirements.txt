@@ -1,0 +1,15 @@
+# Core
+openai>=1.0.0
+feedparser>=6.0.11
+requests>=2.32.0
+pyyaml>=6.0.2
+python-dotenv>=1.0.1
+
+# Review web UI
+flask>=3.0.0
+
+# Optional: X/Twitter posting
+tweepy>=4.14.0
+
+# Scheduling & utilities
+schedule>=1.2.2

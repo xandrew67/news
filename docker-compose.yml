@@ -1,0 +1,22 @@
+version: "3.9"
+
+services:
+  au-news-agent:
+    build: .
+    image: au-news-agent:latest
+    container_name: au-news-agent
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      # Persist output and state between restarts
+      - ./output:/app/output
+      # Mount config as read-only for easy editing without rebuild
+      - ./config:/app/config:ro
+    # Run once (no --loop) for manual/cron runs; change to empty string for daemon
+    command: ["--loop"]
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"

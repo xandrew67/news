@@ -1,0 +1,52 @@
+# Australian Primary Source Feeds Configuration
+# Each feed has: name, url, type (rss|api), category, priority (1=highest)
+# URLs last verified: 2026-06-12
+
+rss_feeds:
+  # Prime Minister's Office
+  - name: PM Media Releases
+    url: https://www.pm.gov.au/rss.xml
+    category: executive
+    priority: 1
+
+  # Department of Prime Minister & Cabinet
+  - name: PM&C Policy Research
+    url: https://www.pmc.gov.au/rss.xml
+    category: executive
+    priority: 2
+
+  # Department of Foreign Affairs & Trade
+  - name: DFAT
+    url: https://www.dfat.gov.au/rss.xml
+    category: foreign_affairs
+    priority: 2
+
+  # Department of Infrastructure
+  - name: Infrastructure
+    url: https://www.infrastructure.gov.au/rss.xml
+    category: infrastructure
+    priority: 2
+
+  # Reserve Bank of Australia
+  - name: Reserve Bank Media Releases
+    url: https://www.rba.gov.au/rss/rss-cb-media-releases.xml
+    category: economy
+    priority: 1
+
+  # ABC News (primary Australian public broadcaster)
+  - name: ABC News
+    url: https://www.abc.net.au/news/feed/45910/rss.xml
+    category: general
+    priority: 2
+
+api_feeds:
+  # ABS Data API
+  - name: ABS Data API
+    base_url: https://data.api.abs.gov.au/rest/
+    type: abs
+    category: statistics
+    priority: 1
+    dataflows:
+      - CPI          # Consumer Price Index
+      - LF           # Labour Force
+      - NA           # National Accounts (GDP)

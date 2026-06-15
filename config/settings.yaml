@@ -1,0 +1,25 @@
+# Application Settings
+
+agent:
+  model: llama3:latest
+  max_tokens: 2048
+  temperature: 0.3
+
+scoring:
+  min_newsworthy_score: 6        # 0-10, items below this are dropped
+  max_items_per_run: 5           # Max new posts per pipeline run
+  dedup_window_hours: 48         # Don't re-post same story within N hours
+
+pipeline:
+  poll_interval_minutes: 120     # How often to run the full pipeline
+  request_timeout_seconds: 30    # HTTP timeout for feed fetching
+  max_feed_items: 20             # Max items to pull per feed per run
+
+output:
+  post_file: output/posts.jsonl
+  state_file: output/state.json  # Tracks seen item IDs
+  post_to_x: false               # Set true when X credentials configured
+
+logging:
+  level: INFO
+  format: "%(asctime)s [%(name)s] %(levelname)s: %(message)s"
