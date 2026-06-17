@@ -1,42 +1,79 @@
-# Australian Primary Source Feeds Configuration
+# News Intelligence Feed Configuration
 # Each feed has: name, url, type (rss|api), category, priority (1=highest)
-# URLs last verified: 2026-06-12
+# URLs last verified: 2026-06-17
 
 rss_feeds:
+
+  # ── Australia ─────────────────────────────────────────────────────────────
+
   # Prime Minister's Office
   - name: PM Media Releases
     url: https://www.pm.gov.au/rss.xml
-    category: executive
+    category: au_executive
     priority: 1
 
   # Department of Prime Minister & Cabinet
   - name: PM&C Policy Research
     url: https://www.pmc.gov.au/rss.xml
-    category: executive
+    category: au_executive
     priority: 2
 
   # Department of Foreign Affairs & Trade
   - name: DFAT
     url: https://www.dfat.gov.au/rss.xml
-    category: foreign_affairs
+    category: au_foreign_affairs
     priority: 2
 
   # Department of Infrastructure
   - name: Infrastructure
     url: https://www.infrastructure.gov.au/rss.xml
-    category: infrastructure
+    category: au_infrastructure
     priority: 2
 
   # Reserve Bank of Australia
   - name: Reserve Bank Media Releases
     url: https://www.rba.gov.au/rss/rss-cb-media-releases.xml
-    category: economy
+    category: au_economy
     priority: 1
 
-  # ABC News (primary Australian public broadcaster)
+  # ABC News
   - name: ABC News
     url: https://www.abc.net.au/news/feed/45910/rss.xml
-    category: general
+    category: au_general
+    priority: 2
+
+  # ── United States ─────────────────────────────────────────────────────────
+
+  # White House
+  - name: White House News
+    url: https://www.whitehouse.gov/news/feed/
+    category: us_executive
+    priority: 1
+
+  # Federal Reserve
+  - name: Federal Reserve Press Releases
+    url: https://www.federalreserve.gov/feeds/press_all.xml
+    category: us_economy
+    priority: 1
+
+  # Department of Justice
+  - name: US Department of Justice
+    url: https://www.justice.gov/news/rss
+    category: us_justice
+    priority: 2
+
+  # ── International ─────────────────────────────────────────────────────────
+
+  # United Nations
+  - name: UN News
+    url: https://news.un.org/feed/subscribe/en/news/all/rss.xml
+    category: international
+    priority: 2
+
+  # CDC (global health impact)
+  - name: CDC Recalls & Alerts
+    url: https://tools.cdc.gov/api/v2/resources/media/316422.rss
+    category: health
     priority: 2
 
 api_feeds:
@@ -44,7 +81,7 @@ api_feeds:
   - name: ABS Data API
     base_url: https://data.api.abs.gov.au/rest/
     type: abs
-    category: statistics
+    category: au_statistics
     priority: 1
     dataflows:
       - CPI          # Consumer Price Index

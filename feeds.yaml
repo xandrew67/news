@@ -1,0 +1,84 @@
+# Australian Primary Source Feeds Configuration
+# Each feed has: name, url, type (rss|api), category, priority (1=highest)
+
+rss_feeds:
+  # Parliament of Australia
+  - name: Senate New Inquiries
+    url: https://www.aph.gov.au/senate/rss/new_inquiries
+    category: parliament
+    priority: 1
+
+  - name: Senate Committee Reports
+    url: https://www.aph.gov.au/senate/rss/reports
+    category: parliament
+    priority: 1
+
+  - name: Senate Upcoming Hearings
+    url: https://www.aph.gov.au/senate/rss/upcoming_hearings
+    category: parliament
+    priority: 2
+
+  - name: Senate Red (Today's Hearings)
+    url: https://www.aph.gov.au/senate/rss/red
+    category: parliament
+    priority: 1
+
+  # Prime Minister's Office
+  - name: PM Media Releases
+    url: https://www.pm.gov.au/media/rss.xml
+    category: executive
+    priority: 1
+
+  # Department of Health
+  - name: Health Department News
+    url: https://www.health.gov.au/news/rss.xml
+    category: health
+    priority: 2
+
+  # Federal Court
+  - name: Federal Court Judgments
+    url: https://www.fedcourt.gov.au/rss/judgments
+    category: judiciary
+    priority: 2
+
+  # Treasury / Finance
+  - name: Treasury News
+    url: https://treasury.gov.au/news/rss.xml
+    category: economy
+    priority: 1
+
+  # ACCC
+  - name: ACCC News
+    url: https://www.accc.gov.au/media-release/rss.xml
+    category: regulation
+    priority: 2
+
+  # RBA
+  - name: Reserve Bank Media Releases
+    url: https://www.rba.gov.au/rss/rss-cb-media-releases.xml
+    category: economy
+    priority: 1
+
+api_feeds:
+  # ABS Data API
+  - name: ABS Data API
+    base_url: https://data.api.abs.gov.au/rest/
+    type: abs
+    category: statistics
+    priority: 1
+    # Key dataflows to poll
+    dataflows:
+      - CPI          # Consumer Price Index
+      - LF           # Labour Force
+      - NA           # National Accounts (GDP)
+      - BIRTHS       # Births
+      - DEATHS       # Deaths
+
+  # data.gov.au CKAN API
+  - name: data.gov.au Recent Packages
+    url: https://data.gov.au/api/3/action/recently_changed_packages_activity_list
+    type: ckan
+    category: open_data
+    priority: 3
+    params:
+      limit: 20
