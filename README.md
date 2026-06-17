@@ -1,4 +1,4 @@
-# 🇦🇺 Australian News Intelligence Agent
+# 🇦🇺 Australian and International News Intelligence Agent
 
 A multi-agent AI system that monitors Australian primary source feeds, analyses news for newsworthiness, and generates X (Twitter) posts using Claude AI.
 
